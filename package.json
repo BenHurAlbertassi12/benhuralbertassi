@@ -9,8 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "postinstall": "chmod +x ./node_modules/.bin/vite"
-}
-
+    
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
