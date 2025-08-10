@@ -28,24 +28,20 @@ const AboutSection = () => {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.8, delay: 0.2 }}>
               <p className='text-lg text-gray-300 leading-relaxed'>
-                Sou um profissional apaixonado por dados e tecnologia,
+                Sou um profissional dedicado e entusiasta de dados e tecnologia,
                 atualmente atuando como
                 <span className='text-blue-400 font-semibold'>
                   {' '}
-                  estagiário em Engenharia de Dados na EloGroup
+                  estagiário em Engenharia de Dados
                 </span>
-                , uma consultoria renomada especializada em transformação
-                digital.
+
               </p>
 
               <p className='text-lg text-gray-300 leading-relaxed'>
                 Minha jornada na área de dados começou com a curiosidade de
                 entender como informações podem ser transformadas em insights
                 valiosos para negócios. Trabalho com tecnologias de ponta como{' '}
-                <span className='text-purple-400 font-semibold'>
-                  Apache Spark
-                </span>
-                ,
+                <span className='text-purple-400 font-semibold'>Spark</span>,
                 <span className='text-blue-400 font-semibold'>
                   {' '}
                   Microsoft Azure
@@ -55,7 +51,7 @@ const AboutSection = () => {
               </p>
 
               <p className='text-lg text-gray-300 leading-relaxed'>
-                Na EloGroup, tenho a oportunidade de trabalhar em projetos
+                Atualmente, tenho a oportunidade de trabalhar em projetos
                 desafiadores que envolvem Big Data, análise de dados complexos e
                 desenvolvimento de pipelines robustos. Meu objetivo é continuar
                 crescendo na área e contribuir para a transformação digital das
@@ -78,13 +74,12 @@ const AboutSection = () => {
               </div>
             </motion.div>
 
-            {/* Foto real no lugar do Placeholder */}
             <motion.div
               className='flex justify-center'
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 0.8, delay: 0.4 }}>
-              <div className='w-80 h-80 rounded-2xl overflow-hidden border border-blue-500/30 shadow-lg'>
+              <div className='w-80 h-100 rounded-2xl overflow-hidden border border-blue-500/30 shadow-lg'>
                 <img
                   src={perfil}
                   alt='Foto de perfil'

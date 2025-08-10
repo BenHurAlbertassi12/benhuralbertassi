@@ -49,19 +49,34 @@ const SkillsSection = () => {
   const skillCategories = [
     {
       icon: Database,
-      title: "Big Data & Analytics",
-      skills: ["Apache Spark", "SQL", "Big Data Processing", "Data Warehousing"]
+      title: 'Big Data & Analytics',
+      skills: [
+        'Apache Spark',
+        'SQL',
+        'Big Data Processing',
+        'Data Warehousing',
+      ],
     },
     {
       icon: Cloud,
-      title: "Cloud & Platforms",
-      skills: ["Microsoft Azure", "Microsoft Fabric", "Azure Data Factory", "Cloud Architecture"]
+      title: 'Cloud & Platforms',
+      skills: [
+        'Microsoft Azure',
+        'Microsoft Fabric',
+        'Azure Data Factory',
+        'Cloud Architecture',
+      ],
     },
     {
       icon: Code,
-      title: "Desenvolvimento",
-      skills: ["Python", "JavaScript / TypeScript", "PySpark", "Data Pipelines"]
-    }
+      title: 'Desenvolvimento',
+      skills: [
+        'Python',
+        'JavaScript / TypeScript',
+        'PySpark',
+        'Data Pipelines',
+      ],
+    },
   ];
 
   return (
