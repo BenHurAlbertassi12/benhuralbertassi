@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Mail, Phone, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const ContactCard = ({ icon: Icon, title, value, link, delay = 0 }) => {
+  const { t } = useTranslation();
   const handleClick = () => {
     if (link) {
       window.open(link, '_blank');
@@ -25,7 +27,7 @@ const ContactCard = ({ icon: Icon, title, value, link, delay = 0 }) => {
             <Icon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={24} />
           </div>
           <h3 className="text-lg font-semibold text-white ml-4 group-hover:text-blue-300 transition-colors">
-            {title}
+            {t(title)}
           </h3>
         </div>
         {link && (
@@ -43,29 +45,30 @@ const ContactCard = ({ icon: Icon, title, value, link, delay = 0 }) => {
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.3 });
+  const { t } = useTranslation();
 
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
+      title: "email_title",
       value: "dev.benhur@gmail.com",
       link: "mailto:dev.benhur@gmail.com"
     },
     {
       icon: Phone,
-      title: "Celular",
+      title: "phone_title",
       value: "(24) 99999-8028",
       link: "tel:+5524999998028"
     },
     {
       icon: Github,
-      title: "GitHub",
+      title: "github_title",
       value: "benhuralbertassi12",
       link: "https://github.com/benhuralbertassi12"
     },
     {
       icon: Linkedin,
-      title: "LinkedIn",
+      title: "linkedin_title",
       value: "benhur albertassi",
       link: "https://linkedin.com/in/benhur-albertassi"
     }
@@ -81,10 +84,10 @@ const ContactSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            Vamos Conversar?
+            {t('contact_title')}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Estou sempre aberto a novas oportunidades e conexões. Entre em contato comigo!
+            {t('contact_subtitle')}
           </p>
         </motion.div>
 
@@ -110,12 +113,10 @@ const ContactSection = () => {
         >
           <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Interessado em colaborar?
+              {t('collaborate_title')}
             </h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Seja para discutir oportunidades de trabalho, projetos interessantes ou 
-              simplesmente trocar ideias sobre engenharia de dados e tecnologia, 
-              ficarei feliz em conversar!
+              {t('collaborate_description')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -126,7 +127,7 @@ const ContactSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Mail className="mr-2" size={18} />
-                Enviar Email
+                {t('send_email_button')}
               </motion.a>
               
               <motion.a

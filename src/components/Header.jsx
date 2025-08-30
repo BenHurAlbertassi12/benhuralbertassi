@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -27,35 +30,41 @@ const Header = () => {
               onClick={() => scrollToSection('about')}
               className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
             >
-              Sobre
+              {t('about')}
             </button>
             <button
               onClick={() => scrollToSection('skills')}
               className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
             >
-              Habilidades
+              {t('skills')}
             </button>
             <button
               onClick={() => scrollToSection('experience')}
               className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
             >
-              Experiência
+              {t('experience')}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
             >
-              Contato
+              {t('contact')}
             </button>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Right side with Language Selector and Mobile Menu */}
+          <div className="flex items-center space-x-4">
+            {/* Language Selector */}
+            <LanguageSelector />
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-white"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -66,25 +75,25 @@ const Header = () => {
                 onClick={() => scrollToSection('about')}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-left"
               >
-                Sobre
+                {t('about')}
               </button>
               <button
                 onClick={() => scrollToSection('skills')}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-left"
               >
-                Habilidades
+                {t('skills')}
               </button>
               <button
                 onClick={() => scrollToSection('experience')}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-left"
               >
-                Experiência
+                {t('experience')}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-left"
               >
-                Contato
+                {t('contact')}
               </button>
             </div>
           </nav>

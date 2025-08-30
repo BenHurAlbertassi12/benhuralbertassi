@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Database, Cloud, Code, BarChart3, Cpu, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const SkillCard = ({ icon: Icon, title, skills, delay = 0 }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/10"
@@ -17,7 +19,7 @@ const SkillCard = ({ icon: Icon, title, skills, delay = 0 }) => {
           <Icon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={24} />
         </div>
         <h3 className="text-xl font-semibold text-white ml-4 group-hover:text-blue-300 transition-colors">
-          {title}
+          {t(title)}
         </h3>
       </div>
       
@@ -33,7 +35,7 @@ const SkillCard = ({ icon: Icon, title, skills, delay = 0 }) => {
           >
             <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
             <span className="text-gray-300 group-hover:text-gray-200 transition-colors">
-              {skill}
+              {t(skill)}
             </span>
           </motion.div>
         ))}
@@ -45,36 +47,37 @@ const SkillCard = ({ icon: Icon, title, skills, delay = 0 }) => {
 const SkillsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const { t } = useTranslation();
 
   const skillCategories = [
     {
       icon: Database,
-      title: 'Big Data & Analytics',
+      title: 'big_data_analytics_title',
       skills: [
-        'Apache Spark',
-        'SQL',
-        'Big Data Processing',
-        'Data Warehousing',
+        'apache_spark',
+        'sql',
+        'big_data_processing',
+        'data_warehousing',
       ],
     },
     {
       icon: Cloud,
-      title: 'Cloud & Platforms',
+      title: 'cloud_platforms_title',
       skills: [
-        'Microsoft Azure',
-        'Microsoft Fabric',
-        'Azure Data Factory',
-        'Cloud Architecture',
+        'microsoft_azure',
+        'microsoft_fabric',
+        'azure_data_factory',
+        'cloud_architecture',
       ],
     },
     {
       icon: Code,
-      title: 'Desenvolvimento',
+      title: 'development_title',
       skills: [
-        'Python',
-        'JavaScript / TypeScript',
-        'PySpark',
-        'Data Pipelines',
+        'python',
+        'javascript_typescript',
+        'pyspark',
+        'data_pipelines',
       ],
     },
   ];
@@ -89,10 +92,10 @@ const SkillsSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            Habilidades Técnicas
+            {t('technical_skills_title')}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Tecnologias e ferramentas que utilizo para transformar dados em soluções estratégicas
+            {t('technical_skills_description')}
           </p>
         </motion.div>
 
@@ -116,12 +119,12 @@ const SkillsSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <h3 className="text-2xl font-semibold text-white mb-6">
-            Outras Competências
+            {t('other_competencies_title')}
           </h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
-              "ETL/ELT", "Data Modeling", "Business Intelligence", "Machine Learning Basics",
-              "Git/GitHub", "Agile Methodologies", "Data Visualization", "API Development"
+              "etl_elt", "data_modeling", "business_intelligence", "machine_learning_basics",
+              "git_github", "agile_methodologies", "data_visualization", "api_development"
             ].map((skill, index) => (
               <motion.span
                 key={skill}
@@ -131,7 +134,7 @@ const SkillsSection = () => {
                 transition={{ duration: 0.4, delay: 0.8 + (index * 0.05) }}
                 whileHover={{ scale: 1.05 }}
               >
-                {skill}
+                {t(skill)}
               </motion.span>
             ))}
           </div>

@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Building2, Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const ExperienceSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.3 });
+  const { t } = useTranslation();
 
   return (
     <section id="experience" className="py-20 bg-gray-800" ref={ref}>
@@ -16,10 +18,10 @@ const ExperienceSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            Experiência Profissional
+            {t('experience_title')}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Minha jornada na área de engenharia de dados e transformação digital
+            {t('experience_subtitle')}
           </p>
         </motion.div>
 
@@ -39,18 +41,18 @@ const ExperienceSection = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-1">EloGroup</h3>
-                  <p className="text-blue-400 font-semibold">Estagiário em Engenharia de Dados</p>
+                  <p className="text-blue-400 font-semibold">{t('data_engineer_intern_role')}</p>
                 </div>
               </div>
               
               <div className="flex flex-col md:items-end space-y-2">
                 <div className="flex items-center text-gray-400">
                   <Calendar size={16} className="mr-2" />
-                  <span>Atual</span>
+                  <span>{t('current')}</span>
                 </div>
                 <div className="flex items-center text-gray-400">
                   <MapPin size={16} className="mr-2" />
-                  <span>Brasil</span>
+                  <span>{t('brazil')}</span>
                 </div>
               </div>
             </div>
@@ -58,9 +60,9 @@ const ExperienceSection = () => {
             {/* Company Description */}
             <div className="mb-6">
               <p className="text-gray-300 leading-relaxed mb-4">
-                A <span className="text-blue-400 font-semibold">EloGroup</span> é uma consultoria 
-                especializada em transformação digital que integra competências de Tecnologia, 
-                Analytics e Gestão para tornar negócios estrategicamente digitais.
+                {t('elogroup_description_part1')}
+                <span className="text-blue-400 font-semibold">EloGroup</span>
+                {t('elogroup_description_part2')}
               </p>
               
               <div className="flex items-center text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">
@@ -72,17 +74,17 @@ const ExperienceSection = () => {
             {/* Responsibilities */}
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-white mb-3">
-                Principais Atividades:
+                {t('main_activities_title')}
               </h4>
               
               <div className="grid md:grid-cols-2 gap-4">
                 {[
-                  "Desenvolvimento de pipelines de dados com Apache Spark",
-                  "Implementação de soluções em Microsoft Azure e Fabric",
-                  "Análise e processamento de Big Data",
-                  "Colaboração em projetos de transformação digital",
-                  "Otimização de processos de ETL/ELT",
-                  "Suporte em arquiteturas de dados na nuvem"
+                  "develop_data_pipelines",
+                  "implement_azure_fabric_solutions",
+                  "big_data_analysis_processing",
+                  "digital_transformation_collaboration",
+                  "etl_elt_optimization",
+                  "cloud_data_architecture_support"
                 ].map((activity, index) => (
                   <motion.div
                     key={activity}
@@ -92,7 +94,7 @@ const ExperienceSection = () => {
                     transition={{ duration: 0.4, delay: 0.4 + (index * 0.1) }}
                   >
                     <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">{activity}</span>
+                    <span className="text-gray-300">{t(activity)}</span>
                   </motion.div>
                 ))}
               </div>
@@ -101,7 +103,7 @@ const ExperienceSection = () => {
             {/* Technologies Used */}
             <div className="mt-8 pt-6 border-t border-gray-700">
               <h4 className="text-lg font-semibold text-white mb-4">
-                Tecnologias Utilizadas:
+                {t('technologies_used_title')}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -131,11 +133,10 @@ const ExperienceSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <h3 className="text-2xl font-semibold text-white mb-4">
-              Próximos Passos
+              {t('next_steps_title')}
             </h3>
             <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Busco continuar evoluindo na área de engenharia de dados, explorando novas tecnologias 
-              e contribuindo para projetos que gerem impacto real nos negócios através da transformação digital.
+              {t('next_steps_description')}
             </p>
           </motion.div>
         </div>

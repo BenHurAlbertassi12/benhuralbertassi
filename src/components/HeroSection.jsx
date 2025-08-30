@@ -2,8 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import heroBackground from '../assets/hero-bg.jpg';
+import { useTranslation } from 'react-i18next';
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   const scrollToAbout = () => {
     const element = document.getElementById('about');
     if (element) {
@@ -58,7 +61,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}>
-          Engenheiro de Dados | Transformando dados em insights
+          {t('hero_subtitle')}
         </motion.h2>
 
         <motion.p
@@ -66,9 +69,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}>
-          Sempre evoluindo em Big Data, Python, Spark e Azure, transformo dados
-          complexos em informações estratégicas que impulsionam decisões de
-          negócio.
+          {t('hero_description')}
         </motion.p>
 
         <motion.button
@@ -79,7 +80,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.9 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}>
-          Conecte-se comigo
+          {t('connect_button')}
         </motion.button>
       </div>
 

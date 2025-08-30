@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronUp, Github, Linkedin, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -8,6 +9,7 @@ const Footer = () => {
   };
 
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   return (
     <footer className="bg-gray-800 border-t border-gray-700">
@@ -30,45 +32,44 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold text-white mb-4">Ben-Hur Albertassi</h3>
             <p className="text-gray-400 leading-relaxed">
-              Engenheiro de Dados apaixonado por transformar dados em insights valiosos 
-              e contribuir para a transformação digital das organizações.
+              {t('footer_about_description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="text-center">
-            <h4 className="text-lg font-semibold text-white mb-4">Links Rápidos</h4>
+            <h4 className="text-lg font-semibold text-white mb-4">{t('quick_links_title')}</h4>
             <div className="space-y-2">
               <button
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-gray-400 hover:text-blue-400 transition-colors mx-auto"
               >
-                Sobre
+                {t('about')}
               </button>
               <button
                 onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-gray-400 hover:text-blue-400 transition-colors mx-auto"
               >
-                Habilidades
+                {t('skills')}
               </button>
               <button
                 onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-gray-400 hover:text-blue-400 transition-colors mx-auto"
               >
-                Experiência
+                {t('experience')}
               </button>
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-gray-400 hover:text-blue-400 transition-colors mx-auto"
               >
-                Contato
+                {t('contact')}
               </button>
             </div>
           </div>
 
           {/* Social Links */}
           <div className="text-center md:text-right">
-            <h4 className="text-lg font-semibold text-white mb-4">Conecte-se</h4>
+            <h4 className="text-lg font-semibold text-white mb-4">{t('connect_title')}</h4>
             <div className="flex justify-center md:justify-end space-x-4">
               <motion.a
                 href="mailto:dev.benhur@gmail.com"
@@ -105,10 +106,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-400">
-            © {currentYear} Ben-Hur Albertassi. Todos os direitos reservados.
+            © {currentYear} Ben-Hur Albertassi. {t('all_rights_reserved')}
           </p>
           <p className="text-gray-500 text-sm mt-2">
-            Desenvolvido com React.js, Tailwind CSS e Framer Motion
+            {t('developed_with')}
           </p>
         </div>
       </div>
